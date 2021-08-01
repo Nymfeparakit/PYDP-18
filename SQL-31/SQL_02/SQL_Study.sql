@@ -17,7 +17,7 @@ SELECT DISTINCT district FROM address;
 --Доработайте запрос из предыдущего задания, чтобы запрос выводил только те регионы, 
 --названия которых начинаются на "K" и заканчиваются на "a", и названия не содержат пробелов
 
-SELECT DISTINCT district FROM address WHERE district LIKE 'K%a' AND district NOT LIKE 'K% %a';
+SELECT DISTINCT district FROM address WHERE district LIKE 'K%a' AND district NOT LIKE '% %';
 
 
 
@@ -30,7 +30,7 @@ SELECT DISTINCT district FROM address WHERE district LIKE 'K%a' AND district NOT
 
 SELECT payment_id, payment_date, amount 
 FROM payment 
-WHERE payment_date BETWEEN '2007-03-17' AND '2007-03-19'
+WHERE payment_date BETWEEN '2007-03-17' AND '2007-03-20'
 AND amount > 1.00
 ORDER BY payment_date;
 
@@ -66,9 +66,10 @@ FROM customer;
 --Выведите одним запросом активных покупателей, имена которых Kelly или Willie.
 --Все буквы в фамилии и имени из нижнего регистра должны быть переведены в высокий регистр.
 
-SELECT UPPER(last_name), UPPER(first_name)
+SELECT UPPER(last_name) AS "last_name", UPPER(first_name) AS "first_name"
 FROM customer
-WHERE first_name ILIKE 'Kelly' OR first_name ILIKE 'Willie';
+WHERE first_name ILIKE 'Kelly' OR first_name ILIKE 'Willie'
+AND activebool = 'true';
 
 
 
