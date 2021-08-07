@@ -87,7 +87,8 @@ values
 --СОЗДАНИЕ ПЕРВОЙ ТАБЛИЦЫ СО СВЯЗЯМИ
 create table countries_folks(
 country_id integer references countries(country_id),
-folk_id integer references folks(folk_id)
+folk_id integer references folks(folk_id),
+primary key(country_id, folk_id)
 );
 
 
@@ -112,7 +113,8 @@ values
 --СОЗДАНИЕ ВТОРОЙ ТАБЛИЦЫ СО СВЯЗЯМИ
 create table languages_folks(
 language_id integer references languages(language_id),
-folk_id integer references folks(folk_id)
+folk_id integer references folks(folk_id),
+primary key(language_id, folk_id)
 );
 
 --ВНЕСЕНИЕ ДАННЫХ В ТАБЛИЦУ СО СВЯЗЯМИ
